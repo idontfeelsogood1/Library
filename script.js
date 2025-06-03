@@ -15,6 +15,9 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayBook() {
     let display = document.querySelector("#library");
+    
+    // clear book before adding in another
+    display.innerHTML = '';
     for (let book of myLibrary) {
         let card = document.createElement("div");
         card.classList.add("book");
@@ -43,6 +46,28 @@ function displayBook() {
     }
 }
 
+function createNewBook() {
+    document.querySelector("#new-book").addEventListener("click", () => {
+        document.querySelector("dialog").showModal();
+    })
+    document.querySelector("#confirmBtn").addEventListener("click", (event) => {
+        event.preventDefault();
+
+        let title = document.querySelector("#title").value;
+        let author = document.querySelector("#author").value;
+        let pages = document.querySelector("#pages").value;
+        let read = document.querySelector("#read").value;
+
+        addBookToLibrary(title, author, pages, read);
+        displayBook();
+
+        document.querySelector("dialog").close();
+    })
+}
+
 // main
-addBookToLibrary("The Hobbit", "J.R.R Tolken", "300", "Yes");
+addBookToLibrary("The Hobbit", "J.R.R Tolken", "300", "No");
+addBookToLibrary("1984", "George Orwell", "328", "Yes");
+addBookToLibrary("Atomic Habits", "James Clear", "288", "Yes");
 displayBook();
+createNewBook();
