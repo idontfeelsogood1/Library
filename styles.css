@@ -68,47 +68,87 @@ body {
 }
 
 header {
-    position: relative;
-    background: gray;
-    box-shadow: 0px 3px 10px gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+  position: relative;
+  background: gray;
+  box-shadow: 0px 3px 10px gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 
 header > h1 {
-    color: white;
-    letter-spacing: 2px;
+  color: white;
+  letter-spacing: 2px;
 }
 
 header > button {
-    width: 120px;
-    height: 35px;
-    border-radius: 8px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 8px lightgray;
+  width: 120px;
+  height: 35px;
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 8px lightgray;
 }
 
 main {
-    padding: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background: lightgray;
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: lightgray;
 }
 
 /* use with javascript*/
 .book { 
-    width: 280px;
-    height: 280px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background: rgb(248, 246, 246);
-    border-left: 8px solid black;
-    border-radius: 7px;
-    box-shadow: 0px 3px 10px gray;
+  width: 280px;
+  height: 280px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgb(248, 246, 246);
+  border-left: 8px solid black;
+  border-radius: 7px;
+  box-shadow: 0px 3px 10px gray;
+}
+
+dialog {
+  justify-self: center;
+  align-self: center;
+  width: 300px;
+  height: 500px;
+  place-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > label + input, form > p {
+  margin-bottom: 40px;
+}
+
+.radio {
+  display: flex;
+  gap: 8px;
+}
+
+form > p + p {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+form button {
+  width: 90px;
+  height: 30px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+form button + button {
+  background: rgb(19, 138, 177);
+  color: white;
 }
