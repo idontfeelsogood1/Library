@@ -6,6 +6,9 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.readStatusChange = function () {
+        this.read === 'Yes' ? this.read = 'No' : this.read = 'Yes';
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -35,11 +38,33 @@ function displayBook() {
         bookPages.innerText = "Pages: " + book.pages;
         bookRead.innerText = "Read yet ?: " + book.read;
 
+        // card remove and read button element
+        let removeBtn = document.createElement("button");
+        let readBtn = document.createElement("button");
+
+        removeBtn.classList.add("removeBtn");
+        readBtn.classList.add("changeReadBtn");
+
+        removeBtn.innerText = "Remove";
+        removeBtn.setAttribute("type", "button");
+        removeBtn.addEventListener("click", () => {
+            card.remove();
+        })
+
+        readBtn.innerText = "Read";
+        readBtn.setAttribute("type", "button");
+        readBtn.addEventListener("click", () => {
+            book.readStatusChange();
+            bookRead.innerText = "Read yet ?: " + book.read;
+        })
+
         // Add everything to card
         card.appendChild(bookTitle);
         card.appendChild(bookAuthor);
         card.appendChild(bookPages);
         card.appendChild(bookRead);
+        card.appendChild(removeBtn);
+        card.appendChild(readBtn)
         
         // Add card to display
         display.appendChild(card);
