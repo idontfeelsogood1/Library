@@ -1,12 +1,15 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.readStatusChange = function () {
+class Book {
+    constructor (title, author, pages, read) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    
+    readStatusChange = function () {
         this.read === 'Yes' ? this.read = 'No' : this.read = 'Yes';
     }
 }
@@ -49,6 +52,7 @@ function displayBook() {
         removeBtn.setAttribute("type", "button");
         removeBtn.addEventListener("click", () => {
             card.remove();
+            myLibrary.splice(myLibrary.indexOf(book.id), 1);
         })
 
         readBtn.innerText = "Read";
