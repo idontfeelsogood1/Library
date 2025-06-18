@@ -79,7 +79,10 @@ function createNewBook() {
     document.querySelector("#new-book").addEventListener("click", () => {
         document.querySelector("dialog").showModal();
     })
-    document.querySelector("#confirmBtn").addEventListener("click", (event) => {
+    document.querySelector("#cancel").addEventListener('click', () => {
+        document.querySelector("dialog").close();
+    })
+    document.querySelector("dialog").addEventListener("submit", (event) => {
         event.preventDefault();
 
         let title = document.querySelector("#title").value;
